@@ -92,7 +92,7 @@ void Save_data_project(const vector<PROJECT> &Project)
 void Save_data_student(const vector<GROUP> &Group)
 {
     fstream outputFile;
-    outputFile.open("group.txt", ios::out);
+    outputFile.open("data/group.txt", ios::out);
     for (int count_1 = 0; count_1 < Group.size(); count_1++)
     {
         outputFile << Group[count_1].Group_Number << '$';
