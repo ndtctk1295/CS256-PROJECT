@@ -9,10 +9,22 @@ void Display_incomplete_late_group(const vector<GROUP> &Group, const vector<PROJ
     vector<int> incomplete_project;
     string clone_state;
     vector<string> state;
+    bool no_late = true;
 
     cout << "=====================================" << '\n';
     cout << "[    INCOMPLETE/LATE SUBMISSION     ]" << '\n';
     cout << "=====================================" << '\n';
+    if (Group.size() == 0)
+    {
+        cout << "   There is no group.                " << '\n';
+        system("pause");
+        return;
+    }if (Project.size() == 0)
+    {
+        cout << "   There is no project.                " << '\n';
+        system("pause");
+        return;
+    }
     for (int count_1_1 = 0, count_1_2 = Group.size(); count_1_1 < count_1_2; count_1_1++)
     {
         incomplete_group = -1;
@@ -23,6 +35,7 @@ void Display_incomplete_late_group(const vector<GROUP> &Group, const vector<PROJ
             clone_state = checkState(&Project[count_2_1].Due_date, &Project[count_2_1].Submission_date[count_1_1]);
             if (clone_state == "Late." || clone_state == "Not Submit.")
             {
+                no_late = false;
                 incomplete_group = count_1_1 + 1;
                 incomplete_project.push_back(count_2_1 + 1);
                 state.push_back(clone_state);
@@ -44,6 +57,10 @@ void Display_incomplete_late_group(const vector<GROUP> &Group, const vector<PROJ
             cout << "=====================================" << '\n';
             cout << '\n';
         }
+    }
+    if (no_late)
+    {
+        cout << "   There is no incomplete/late submission.                " << '\n';
     }
     system("pause");
 }

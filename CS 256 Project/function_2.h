@@ -33,6 +33,12 @@ void Display_project_information(const vector<PROJECT> &Project)
     cout << "=============================================" << '\n';
     cout << "[            PROJECT INFORMATION            ]" << '\n';
     cout << "=============================================" << '\n';
+    if (Project.size() == 0)
+    {
+        cout << "   There is no project.                " << '\n';
+        system("pause");
+        return;
+    }
     cout << left << setw(3) << "No"
          << setw(30) << "| DESCRIPTION"
          << setw(11) << "| DUE DATE" << '\n';
@@ -71,11 +77,18 @@ void Add_project(vector<GROUP> &Group, vector<PROJECT> &Project)
     clone = getValueAfterValidate(clone, validateDate);
     clone_Project.Due_date = Date(clone);
     Project.push_back(clone_Project);
+
     Date clone_Date;
     for (int count_1 = 0, count_2 = Group.size(); count_1 < count_2; count_1++)
     {
         Project[Project.size() - 1].Submission_date.push_back(clone_Date);
     }
+    if (Group.size() == 0)
+    {
+        return;
+    }
+    else
+        Save_data_submission(Group, Project);
     Save_data_project(Project);
     cout << "---------------------------------------------" << '\n';
     cout << "     Project is added to list.               " << '\n';

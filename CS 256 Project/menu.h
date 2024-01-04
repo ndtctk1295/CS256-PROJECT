@@ -2,7 +2,7 @@
 
 #include "function_1.h"
 #include "function_2.h"
-#include "function_3.h"
+#include "function_32.h"
 #include "function_4.h"
 #include "function_5.h"
 #include "function_6.h"
@@ -51,51 +51,57 @@ void Run_code(vector<GROUP> Group, vector<PROJECT> Project, int Function)
         switch (Function)
         {
         case 1:
-            system("cls");
-            Function = Menu_1();
-            switch (Function)
+            do
             {
-            case 1:
                 system("cls");
-                Display_all_information(Group);
-                break;
-            case 2:
-                system("cls");
-                Display_group_information(Group);
-                break;
-            case 3:
-                system("cls");
-                Add_group(Group, Project);
-                break;
-            case 4:
-                system("cls");
-                Add_member_group(Group);
-                break;
-            case 5:
-                system("cls");
-                Delete_member_group(Group);
-                break;
-            default:
-                break;
-            }
-            break;
+                Function = Menu_1();
+                switch (Function)
+                {
+                case 1:
 
+                    system("cls");
+                    Display_all_information(Group);
+                    break;
+                case 2:
+                    system("cls");
+                    Display_group_information(Group);
+                    break;
+                case 3:
+                    system("cls");
+                    Add_group(Group, Project);
+                    break;
+                case 4:
+                    system("cls");
+                    Add_member_group(Group);
+                    break;
+                case 5:
+                    system("cls");
+                    Delete_member_group(Group);
+                    break;
+                default:
+                    break;
+                }
+            } while (Function >= 1 && Function <= 5);
+            break;
         case 2:
-            system("cls");
-            Function = Menu_2();
-            switch (Function)
+            do
             {
-            case 1:
                 system("cls");
-                Display_project_information(Project);
-                break;
-            case 2:
-                system("cls");
-                Add_project(Group, Project);
-                break;
-            default:
-                break;
-            }
+                Function = Menu_2();
+                switch (Function)
+                {
+                case 1:
+                    system("cls");
+                    Display_project_information(Project);
+                    break;
+                case 2:
+                    system("cls");
+                    Add_project(Group, Project);
+                    break;
+                default:
+                    break;
+                }
+            } while (Function >= 1 && Function <= 2);
             break;
 
         case 3:
@@ -104,41 +110,47 @@ void Run_code(vector<GROUP> Group, vector<PROJECT> Project, int Function)
             break;
 
         case 4:
-            system("cls");
-            Function = Menu_4();
-            switch (Function)
+            do
             {
-            case 1:
                 system("cls");
-                Display_statistic_project(Group, Project);
-                break;
+                Function = Menu_4();
+                switch (Function)
+                {
+                case 1:
+                    system("cls");
+                    Display_statistic_project(Group, Project);
+                    break;
 
-            case 2:
-                system("cls");
-                Display_statistic_group(Group, Project);
-                break;
+                case 2:
+                    system("cls");
+                    Display_statistic_group(Group, Project);
+                    break;
 
-            default:
-                break;
-            }
+                default:
+                    break;
+                }
+            } while (Function >= 1 && Function <= 2);
             break;
 
         case 5:
-            system("cls");
-            Function = Menu_5();
-            switch (Function)
+            do
             {
-            case 1:
                 system("cls");
-                Display_overall_statistic_specific(Group, Project);
-                break;
-            case 2:
-                system("cls");
-                Display_overall_statistic_current(Group, Project);
-                break;
-            default:
-                break;
-            }
+                Function = Menu_5();
+                switch (Function)
+                {
+                case 1:
+                    system("cls");
+                    Display_overall_statistic_specific(Group, Project);
+                    break;
+                case 2:
+                    system("cls");
+                    Display_overall_statistic_current(Group, Project);
+                    break;
+                default:
+                    break;
+                }
+            } while (Function >= 1 && Function <= 2);
             break;
 
         case 6:

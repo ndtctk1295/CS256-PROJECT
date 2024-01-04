@@ -34,6 +34,18 @@ void Display_statistic_project(const vector<GROUP> &Group, const vector<PROJECT>
     cout << "======================================" << '\n';
     cout << "[         PROJECT STATISTICS         ]" << '\n';
     cout << "======================================" << '\n';
+    if (Project.size() == 0)
+    {
+        cout << "   There is no project.                " << '\n';
+        system("pause");
+        return;
+    }
+    if (Group.size() == 0)
+    {
+        cout << "   There is no group.                " << '\n';
+        system("pause");
+        return;
+    }
     cout << "   Enter project number (1 - " << Project.size() << "): ";
 
     while (!(cin >> choice) || choice < 1 || choice > Project.size())
@@ -66,6 +78,18 @@ void Display_statistic_group(const vector<GROUP> &Group, const vector<PROJECT> &
     cout << "======================================" << '\n';
     cout << "[          GROUP STATISTICS          ]" << '\n';
     cout << "======================================" << '\n';
+    if (Group.size() == 0)
+    {
+        cout << "   There is no group.                " << '\n';
+        system("pause");
+        return;
+    }
+    if (Project.size() == 0)
+    {
+        cout << "   There is no project.                " << '\n';
+        system("pause");
+        return;
+    }
     cout << "   Enter group number (1 - " << Group.size() << "): ";
 
     while (!(cin >> choice) || choice < 1 || choice > Group.size())

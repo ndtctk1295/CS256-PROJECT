@@ -40,6 +40,12 @@ void Display_all_information(const vector<GROUP> &Group)
     cout << "===========================================" << '\n';
     cout << "[            CLASS INFORMATION            ]" << '\n';
     cout << "===========================================" << '\n';
+    if (Group.size() == 0)
+    {
+        cout << "   There is no group.                " << '\n';
+        system("pause");
+        return;
+    }
     cout << left << setw(4) << "No" << setw(29) << "| NAME" << setw(10) << "| ID" << '\n';
     cout << "-------------------------------------------" << '\n';
     for (int count_1 = 0; count_1 < Group.size(); count_1++)
@@ -68,6 +74,12 @@ void Display_group_information(const vector<GROUP> &Group)
     cout << "===========================================" << '\n';
     cout << "[            GROUP INFORMATION            ]" << '\n';
     cout << "===========================================" << '\n';
+    if (Group.size() == 0)
+    {
+        cout << "   There is no group.                " << '\n';
+        system("pause");
+        return;
+    }
     cout << "   Enter group number (1 - " << Group.size() << "): ";
     while (!(cin >> choice) || choice < 1 || choice > Group.size())
     {
@@ -110,7 +122,7 @@ void Add_group(vector<GROUP> &Group, vector<PROJECT> &Project)
     cout << "   Enter students information:       " << '\n';
     bool check_1 = false;
     bool check_2 = false;
-    bool check_3 = false;
+    bool check_3 = true;
     int student_count = 0;
     char add;
     string clone_str;
@@ -150,6 +162,7 @@ void Add_group(vector<GROUP> &Group, vector<PROJECT> &Project)
 
             int count_1 = 0;
             int count_2 = 0;
+
             for (count_1 = 0; count_1 < Group.size(); count_1++)
             {
                 for (count_2 = 0; count_2 < Group[count_1].Student.size(); count_2++)
@@ -164,12 +177,6 @@ void Add_group(vector<GROUP> &Group, vector<PROJECT> &Project)
                         check_3 = true;
                     }
                 }
-
-                if (clone_Student.ID == Group[count_1].Student[count_2].ID)
-                {
-                    check_3 = false;
-                    break;
-                }
             }
 
             if (check_1 == true && check_2 == true && check_3 == true)
@@ -179,7 +186,6 @@ void Add_group(vector<GROUP> &Group, vector<PROJECT> &Project)
             else
             {
                 cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 cout << "-------------------------------------" << '\n';
                 cout << "   ERROR! Please try again.          " << '\n';
                 if (check_1 == false)
@@ -195,6 +201,7 @@ void Add_group(vector<GROUP> &Group, vector<PROJECT> &Project)
                     cout << "   Student's ID already existed.     " << '\n';
                 }
                 cout << "-------------------------------------" << '\n';
+                cout << "   Name: ";
                 getline(cin, clone_str);
                 clone_Student.Name = UPPERCASE(clone_str);
                 cout << "   ID (8 digits) : ";
@@ -239,6 +246,12 @@ void Add_member_group(vector<GROUP> &Group)
     cout << "=====================================" << '\n';
     cout << "[            ADD MEMBER             ]" << '\n';
     cout << "=====================================" << '\n';
+    if (Group.size() == 0)
+    {
+        cout << "   There is no group.                " << '\n';
+        system("pause");
+        return;
+    }
     cout << "   Add member to group (1 - " << Group.size() << "): ";
     while (!(cin >> choice) || choice < 1 || choice > Group.size())
     {
@@ -257,7 +270,7 @@ void Add_member_group(vector<GROUP> &Group)
     cout << "   Enter students information:       " << '\n';
     bool check_1 = false;
     bool check_2 = false;
-    bool check_3 = false;
+    bool check_3 = true;
     char add;
     string clone_str;
     do
@@ -311,12 +324,6 @@ void Add_member_group(vector<GROUP> &Group)
                     {
                         check_3 = true;
                     }
-                }
-
-                if (clone_Student.ID == Group[count_1].Student[count_2].ID)
-                {
-                    check_3 = false;
-                    break;
                 }
             }
 
@@ -373,7 +380,15 @@ void Delete_member_group(vector<GROUP> &Group)
     cout << "=====================================" << '\n';
     cout << "[           DELETE MEMBER           ]" << '\n';
     cout << "=====================================" << '\n';
+    if (Group.size() == 0)
+    {
+        cout << "   There is no group.                " << '\n';
+        system("pause");
+        return;
+    }
+
     cout << "   Enter group number (1 - " << Group.size() << "): ";
+
     while (!(cin >> choice_gr) || choice_gr < 1 || choice_gr > Group.size())
     {
         cin.clear();

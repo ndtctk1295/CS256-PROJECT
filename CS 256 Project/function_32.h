@@ -27,32 +27,32 @@ void Input_submission_information(vector<GROUP> &Group, vector<PROJECT> &Project
     }
 
     Display_project_information(Project);
-    cout << "     Group   (1 - " << Group.size() << "): ";
-    while (!(cin >> choice_group) || choice_group < 1 || choice_group > Group.size())
+    cout << "-------------------------------------" << '\n';
+    cout << "     Project (1 - " << Project.size() << "): ";
+
+    while (!(cin >> choice_project) || choice_project < 1 || choice_project > Project.size())
     {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "-------------------------------------" << '\n';
         cout << "   ERROR! Please try again.          " << '\n';
-        cout << "   Enter (1 - " << Group.size() << "): ";
+        cout << "   Enter (1 - " << Project.size() << "): ";
     }
-    choice_group = choice_group - 1;
+    cout << "-------------------------------------" << '\n';
+    choice_project = choice_project - 1;
     char add;
     do
     {
-        cout << "-------------------------------------" << '\n';
-        cout << "     Project (1 - " << Project.size() << "): ";
-
-        while (!(cin >> choice_project) || choice_project < 1 || choice_project > Project.size())
+        cout << "     Group   (1 - " << Group.size() << "): ";
+        while (!(cin >> choice_group) || choice_group < 1 || choice_group > Group.size())
         {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "-------------------------------------" << '\n';
             cout << "   ERROR! Please try again.          " << '\n';
-            cout << "   Enter (1 - " << Project.size() << "): ";
+            cout << "   Enter (1 - " << Group.size() << "): ";
         }
-        cout << "-------------------------------------" << '\n';
-        choice_project = choice_project - 1;
+        choice_group = choice_group - 1;
 
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         string clone_str;
@@ -64,7 +64,7 @@ void Input_submission_information(vector<GROUP> &Group, vector<PROJECT> &Project
         cout << "-------------------------------------" << '\n';
         cout << "     Submission date updated.        " << '\n';
         cout << "=====================================" << '\n';
-        cout << "   Submit another project (y/n): ";
+        cout << "   Submit for another group (y/n): ";
         cin >> add;
         add = toupper(add);
         cin.clear();

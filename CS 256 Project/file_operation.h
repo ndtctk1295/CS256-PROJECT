@@ -138,6 +138,7 @@ void Save_data_submission(vector<GROUP> &Group, vector<PROJECT> &Project)
         }
         outputFile << '\n';
     }
+    
 }
 
 void Save_data_overall_statistic(const vector<GROUP> &Group, const vector<PROJECT> &Project, string date)
